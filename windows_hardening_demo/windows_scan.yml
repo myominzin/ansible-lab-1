@@ -44,7 +44,7 @@
           port: 587
           username: "{{ gmail_account }}"
           password: "{{ gmail_account_password }}"
-          to: Myo Min Zin <m2zinfo@gmail.com>
+          to: Myo Min Zin <dc01.myanmar@gmail.com>
           subject: "Windows Server(s) Audit Report"
           body: "Scan Completed. Please see attached report."
           attach: "{{ csv_audit_file_list }}"
