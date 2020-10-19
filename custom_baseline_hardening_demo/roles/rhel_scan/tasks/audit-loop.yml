@@ -35,4 +35,4 @@
 
 # Assume that the server/vm has multiple NIC and its management IP can be found at enp0s8
 - name: Inset Entry into csv file
-  shell: "echo {{ ansible_hostname }},{{ ansible_enp0s8.ipv4.address }},{{ ansible_date_time.date }},{{ hardening_baseline[hardening_baseline_item].descrip }},{{ hardening_baseline_result }} >> {{ host_csv_file }}"
+  shell: "echo {{ ansible_hostname }},{{ ansible_eth0.ipv4.address }},{{ ansible_date_time.date }},{{ hardening_baseline[hardening_baseline_item].descrip }},{{ hardening_baseline_result }} >> {{ host_csv_file }}"
