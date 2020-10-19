@@ -42,7 +42,7 @@
       port: 587
       username: "{{ gmail_user }}"
       password: "{{ gmail_password }}"
-      to: Anthony Lin <anthony.lin.test@gmail.com>
+      to: Myo Min Zin <dc01.myanmar@gmail.com>
       subject: "{{ ansible_hostname }} Audit Report"
       body: "{{ ansible_hostname }} has been audited. See attached report."
       attach: "{{ audit_file_list }}"
