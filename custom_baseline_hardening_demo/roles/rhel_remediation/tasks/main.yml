@@ -16,7 +16,7 @@
 
 - set_stats:
     data:
-      ntp_conf_backup_file: "{{ backup_ntp_conf.backup_file }}"
+      ntp_conf_backup_file: "{{ backup_ntp_conf }}"
   when: "'ntp_remediation' in remediation_task"
 
 - name: Ensure 'dns=none' is set in NetworkManager.conf
