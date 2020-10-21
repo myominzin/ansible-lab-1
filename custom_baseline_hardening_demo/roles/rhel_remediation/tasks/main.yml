@@ -51,8 +51,8 @@
 
 - set_stats:
     data:
-      network_manager_conf_backup_file: "{{ backup_network_manager_conf.backup_file }}"
-      resolv_conf_backup_file: "{{ backup_resolv_conf.backup_file }}"
+      network_manager_conf_backup_file: "{{ backup_network_manager_conf }}"
+      resolv_conf_backup_file: "{{ backup_resolv_conf }}"
   when: "'dns_remediation' in remediation_task"
 
 - name: Ensure SELinux is installed
