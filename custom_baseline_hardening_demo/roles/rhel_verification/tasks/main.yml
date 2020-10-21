@@ -7,7 +7,7 @@
 #
 - name: Application verification test
   uri:
-    url: "http://{{ ansible_enp0s8.ipv4.address }}"
+    url: "http://{{ ansible_eth0.ipv4.address }}"
     return_content: yes
   register: test_result
   failed_when: "'Hello World' not in test_result.content"
