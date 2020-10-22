@@ -9,7 +9,7 @@
     group: root
     mode: 0644
     backup: yes
-  register: backup_ntp_conf.backup_file
+  register: backup_ntp_conf
   notify:
     - "restart ntpd services"
   when: "'ntp_remediation' in remediation_task"
@@ -31,7 +31,7 @@
     group: root
     mode: 0644
     backup: yes
-  register: backup_network_manager_conf.backup_file
+  register: backup_network_manager_conf
   notify:
     - reload NetworkManager
   when: "'dns_remediation' in remediation_task"
@@ -44,7 +44,7 @@
     group: root
     mode: 0644
     backup: yes
-  register: backup_resolv_conf.backup_file
+  register: backup_resolv_conf
   notify:
     - reload NetworkManager
   when: "'dns_remediation' in remediation_task"
