@@ -15,7 +15,7 @@
   when: "'ntp_remediation' in remediation_task"
   
 - debug:
-    msg: {{ backup_ntp_conf }}
+    msg: "{{ backup_ntp_conf }}"
     
 - set_stats:
     data:
