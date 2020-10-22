@@ -16,7 +16,7 @@
 
 - set_stats:
     data:
-      ntp_conf_backup_file: "{{ backup_ntp_conf }}"
+      ntp_conf_backup_file: "{{ backup_ntp_conf.backup_file }}"
   when: "'ntp_remediation' in remediation_task"
 
 - name: Ensure 'dns=none' is set in NetworkManager.conf
@@ -51,8 +51,8 @@
 
 - set_stats:
     data:
-      network_manager_conf_backup_file: "{{ backup_network_manager_conf }}"
-      resolv_conf_backup_file: "{{ backup_resolv_conf }}"
+      network_manager_conf_backup_file: "{{ backup_network_manager_conf.backup_file }}"
+      resolv_conf_backup_file: "{{ backup_resolv_conf.backup_file }}"
   when: "'dns_remediation' in remediation_task"
 
 - name: Ensure SELinux is installed
