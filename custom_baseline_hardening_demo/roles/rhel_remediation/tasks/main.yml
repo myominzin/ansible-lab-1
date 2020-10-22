@@ -13,7 +13,10 @@
   notify:
     - "restart ntpd services"
   when: "'ntp_remediation' in remediation_task"
-
+  
+- debug:
+    msg: {{ backup_ntp_conf }}
+    
 - set_stats:
     data:
       ntp_conf_backup_file: "{{ backup_ntp_conf.backup_file }}"
