@@ -9,14 +9,14 @@
     group: root
     mode: 0644
     backup: yes
-  register: backup_ntp_conf
+  register: backup_ntp_conf.backup_file
   notify:
     - "restart ntpd services"
   when: "'ntp_remediation' in remediation_task"
 
 - set_stats:
     data:
-      ntp_conf_backup_file: "{{ backup_ntp_conf.backup }}"
+      ntp_conf_backup_file: "{{ backup_ntp_conf.backup_file }}"
   when: "'ntp_remediation' in remediation_task"
 
 - name: Ensure 'dns=none' is set in NetworkManager.conf
@@ -31,7 +31,7 @@
     group: root
     mode: 0644
     backup: yes
-  register: backup_network_manager_conf
+  register: backup_network_manager_conf.backup_file
   notify:
     - reload NetworkManager
   when: "'dns_remediation' in remediation_task"
@@ -44,15 +44,15 @@
     group: root
     mode: 0644
     backup: yes
-  register: backup_resolv_conf
+  register: backup_resolv_conf.backup_file
   notify:
     - reload NetworkManager
   when: "'dns_remediation' in remediation_task"
 
 - set_stats:
     data:
-      network_manager_conf_backup_file: "{{ backup_network_manager_conf.backup }}"
-      resolv_conf_backup_file: "{{ backup_resolv_conf.backup }}"
+      network_manager_conf_backup_file: "{{ backup_network_manager_conf.backup_file }}"
+      resolv_conf_backup_file: "{{ backup_resolv_conf.backup_file }}"
   when: "'dns_remediation' in remediation_task"
 
 - name: Ensure SELinux is installed
